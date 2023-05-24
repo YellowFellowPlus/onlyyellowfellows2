@@ -1,0 +1,75 @@
+<html>
+    <head>
+            <title> Pong </title>
+    </head>
+        <body>
+            <canvas id="canvas1" width="1000" height="500">
+            </canvas>
+                <style>
+                    canvas {
+                    border: 12px solid black;
+                    }
+                </style>
+                    <script>
+                    var dx = 6
+                    var ballnewposition = 500
+                    var ctx = document.getElementById("canvas1").getContext("2d");
+                    var mult = 13
+                    var Countblack = 0
+                    var Countred = 0
+
+
+                    function drawpaddel1(x,y){
+                    ctx.beginPath();
+                    ctx.lineWidth = "4";
+                    ctx.strokeStyle = "black";
+                    ctx.rect(x,y,5,160);
+                    ctx.stroke();
+                    }
+
+                    function drawpaddel2(x,y){
+                    ctx.beginPath();
+                    ctx.lineWidth = "4";
+                    ctx.strokeStyle = "black";
+                    ctx.rect(x,y,5,160);
+                    ctx.stroke();
+                    }
+
+                    function drawball(x,y){
+                    ctx.beginPath();
+                    ctx.fillStyle = 'black';
+                    ctx.arc(ballnewposition+dx,y,25, 0, Math.PI * 2);
+                    ballnewposition +=dx
+                    ctx.fill();
+                    ctx.closePath();
+                    }
+                    
+                    function gameloop(){
+                        ctx.clearRect(0,0,1000,500);
+                        drawpaddel1(50,180);
+                        drawpaddel2(950,180);
+                        drawball(ballnewposition,250);
+                        /*if (ballnewposition = 1025) {
+                        Countblack += 1
+                        }
+                        if (ballnewposition = -25) {
+                            Countred += 1
+                        }
+
+                        */
+                        ctx.font = "30px Arial" ;
+                        ctx.fillText(Countblack,250,25)
+                        ctx.fillText(Countred,750,25)
+                        ctx.fillText(":",500,25)
+                        
+                        }
+                        
+                       
+                    
+
+                    
+                    setInterval(gameloop, 60);
+                    </script>
+        
+        </body>
+</html>
