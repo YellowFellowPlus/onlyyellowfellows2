@@ -11,6 +11,7 @@
                     }
                 </style>
                     <script>
+                    var wrld = play
                     var dx = 6
                     var ballnewposition = 500
                     var ctx = document.getElementById("canvas1").getContext("2d");
@@ -45,24 +46,32 @@
                     }
                     
                     function gameloop(){
+                        if (wrld = play){
                         ctx.clearRect(0,0,1000,500);
                         drawpaddel1(50,180);
                         drawpaddel2(950,180);
                         drawball(ballnewposition,250);
-                        /*if (ballnewposition = 1025) {
-                        Countblack += 1
                         }
-                        if (ballnewposition = -25) {
+                        if (ballnewposition == 1025) {
+                            Countblack += 1
+                            wrld = newgamestart
+                        }
+                        if (ballnewposition == -25) {
                             Countred += 1
+                            wrld = newgamestart
+                        }
+                        if (wrld = newgamestart){
+                            ballnewposition = 500
+                            wrld = play
                         }
 
-                        */
+                        
                         ctx.font = "30px Arial" ;
                         ctx.fillText(Countblack,250,25)
                         ctx.fillText(Countred,750,25)
                         ctx.fillText(":",500,25)
                         
-                        }
+                    }
                         
                        
                     
